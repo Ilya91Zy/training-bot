@@ -1,0 +1,35 @@
+import random
+
+def answer_bot(my_str,bot_answer_hello,bot_answer_end,question_user):
+    if my_str in str_hello:
+        answer_bot = random.choice(bot_answer_hello)
+        return print(answer_bot)
+    elif my_str in str_end:
+        answer_bot_end = random.choice(bot_answer_end)
+        return print(answer_bot_end)
+    elif my_str in question_user:
+        chat_bot(my_str)
+    else:
+        return print("Я не знаю такого слова(\nПопробуй другое слово, пожалуйста!")
+
+def chat_bot(my_str):
+    match my_str:
+        case 'как дела?': return print ('Хорошо')
+        case 'чем занимаешься?': return print('Обучаюсь')
+        case 'как настроение?': return print ('Отличное! Как сыр в масле катаюсь')
+        case 'чем будешь заниматься?': return print('Обучаться программированию на Python')
+        case 'что делаешь?': return print('Учусь общаться с пользователем')
+
+str_hello = ['привет','хай','привет, бот!','приветик!','приветики-пистолетики!','здравствуйте!','hello','добрый день','добрый день,бот','привет!']
+bot_answer_hello = ['hello!','Привет!','Превет-привет!','Добрый день','Здравствуйте','Михау','Гуден так)','Привет! Мня зовут БОТ. Я начинаю учться!']
+str_end = ['пока','до встречи','goodbuy','buy','хорошего дня','всего хорошего','до свидания']
+bot_answer_end = ['Пока','До свидания','Goodbuy','Пока-пока!', 'До встречи!', 'Спасибо за внимание!']
+question_user = ['как дела?','чем занимаешься?','как настроение?','что делаешь?','чем будешь заниматься?']
+print('Это мой первый бот. Помоги ему начать общаться)\nПопреветствуй его:\n*Для завершения тестирования бота введите "exit"')
+
+while True:
+    my_str = input().lower()
+    if my_str == 'exit':
+        print('Спасибо за тестирование бота!')
+        break
+    answer_bot(my_str,bot_answer_hello,bot_answer_end,question_user)
